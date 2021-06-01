@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+    //1
+    // let num1 = +prompt('Enter number 1'), num2 = +prompt('Enter number 2')
+    // let result = (num1, num2) => {
+    //     if (isNaN(num1) || isNaN(num2)) {
+    //         return 'Введите коректное значение';
+    //     } else if (num1 < num2) {
+    //         return -1;
+    //     } else if (num1 > num2) {
+    //         return 1;
+    //     } else {
+    //         return 0
+    //     }
+    // }
+    // alert(result(num1, num2));
+    // //2
+    // let num3 = +prompt('Введите число')
+    // let factorial = (num3) => {
+    //     let j = 1
+    //     if (isNaN(num3)) {
+    //         return 'Введите корректное значение'
+    //     } else if (num3 < 0) {
+    //         return 'У отрицательных чисел нет факториала'
+    //     } else {
+    //         for (let i = 1; i <= num3; i++) {
+    //             j *= i
+    //         }
+    //     }
+    //     return j;
+    // }
+    // alert(factorial(num3))
+
+    //3
+    //     let num4 = +prompt('Введите первое число ')
+    //     let num5 = +prompt('Введите второе число ')
+    //     let num6 = +prompt('Введите третье число ')
+    //     let putTogether = (num4,num5,num6) =>{
+    //
+    //         if(isNaN(num4) || isNaN(num5) || isNaN(num6)){
+    //             return 'Введите корректное значение'
+    //         }
+    //
+    //         if ( num5  < 0 && num6 < 0 ){
+    //         num5*=-1
+    //             num6*=-1
+    //         }else if ( num5 <  0 && num6 >=0){
+    //          num5*=-1
+    //         }else if(num5>=0 && num6 < 0){
+    //             num6*=-1
+    //         }
+    //         let ar = [num4, Math.trunc(num5), Math.trunc(num6)]
+    //
+    // if ( num4 === 0 && num5 === 0 ){
+    //     ar = [num6]
+    //     return ar
+    // }else if(num4 === 0 && num5 !== 0){
+    //   ar = [num5 , Math.trunc(num6)]
+    //     return ar.join((''));
+    // }
+    //         return ar.join((''));
+    //     }
+    //     alert(putTogether(num4,num5,num6))
+    //
+    //     //4
+    //    let width = +prompt('Введите ширину')
+    //    let _length = +prompt('Введите длину')
+    //    let getSize = (width , _length) =>{
+    //         if(isNaN(width) || isNaN(_length)) {
+    //             return 'Введите корректное значение'
+    //         }
+    //
+    //         if (width === 0  ){
+    //             return  ` площадь квадрата равна ${_length**2}`;
+    //         }else if(_length === 0 ){
+    //             return width**2;
+    //         }else {
+    //             return `площадь квадрата равна ${width * _length}`
+    //         }
+    //    }
+    //    alert( getSize(width, _length))
+
+    //5
+    //  let num7 = +prompt('Enter a number');
+    //  let checkPerfectNum = (num7) =>{
+    //      if (isNaN(num7) || num7 <=0){
+    //          return 'Введите корректное значение'
+    //      }
+    //      let array = []
+    //      for ( let i = 1 ; i < num7 ; i++){
+    //          if ( num7 % i !== 0){
+    //              continue;
+    //          }
+    //          array.push(i);
+    //      }
+    //
+    //      if ( array.reduce((a , b) => a + b)=== num7){
+    //          return `${num7} является совершенным числом`
+    //      }else {
+    //          return `${num7} не является совершенным числом`
+    //      }
+    //  }
+    //  alert(checkPerfectNum(num7))
+    //
+    //  //6
+    // let minPoint = +prompt('точку отсчета')
+    //  let maxPoint = +prompt('точку конца')
+    //  let checkPerfectNum2 = (minPoint, maxPoint, checkPerfectNum) =>{
+    //
+    //
+    //
+    //
+    //  }
+    //  alert(checkPerfectNum2(minPoint, maxPoint , checkPerfectNum))
+
+    //7
+    let hour = +prompt('Введите часы')
+    let min = +prompt('Введите минуты')
+    let sec = +prompt('Введите секунды')
+
+    let time = (hour, min, sec) => {
+        if (isNaN(min) || isNaN(sec) || isNaN(hour)) {
+            return ['Введите корректное значение'];
+        }
+        if (hour < 1 || hour >= 24 || min >= 60 || min < 0 || sec >= 60 || sec < 0) {
+            return ['Введите корректное значение'];
+        } else if (min === 0 && sec === 0) {
+            return `${hour}:00:00`
+        } else if (min === 0 && sec !== 0) {
+            return `${hour}:00:${sec}`
+        } else if (min !== 0 && sec === 0) {
+            return `${hour}:${min}:00`
+        }
+
+        return `${hour}:${min}:${sec}`
+    }
+    alert(time(hour, min, sec))
+
+    //8
+    let time2 = (hour, min, sec, time) => {
+        if (time(hour, min, sec).includes('Введите корректное значение') === true) {
+            return 'Введите корректное значение';
+        } else {
+            return [hour * 3600, min * 60, sec].reduce((a, b) => a + b);
+        }
+    }
+    alert(time2(hour, min, sec, time))
+
+    //9
+    let sec9 = +prompt('Введите секунды')
+    let conventTime = (sec9) => {
+        if (sec9 < 3600) {
+            let a = (sec9 / 3600) * 60;
+            if (a >= 10) {
+                return ` ${+(Math.trunc(a))}min:${Math.round(+(a.toString().slice(3, 5)) * 0.6)}sec`;
+            } else {
+                return `${+(Math.trunc(a))}min:${Math.round(+(a.toString().slice(2, 4)) * 0.6)}sec`;
+            }
+        } else if (sec9 >= 3600) {
+
+        }
+    }
+    alert(conventTime(sec9))
+
+</script>
+
+</body>
+</html>
